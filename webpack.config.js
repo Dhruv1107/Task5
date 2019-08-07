@@ -1,6 +1,6 @@
 
 module.exports = {
-    entry: [`@babel/polyfill`, `./src/view.js`],
+    entry: [`whatwg-fetch`, `@babel/polyfill`, `./src/view.js`],
     output: {
         filename: `bundle.js`
     },
@@ -13,6 +13,11 @@ module.exports = {
                 query: {
                     presets: ['@babel/preset-env']
                 }
+            },
+
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
             }
         ],
     }
