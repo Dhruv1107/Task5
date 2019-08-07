@@ -1,5 +1,3 @@
-import News from './view.js';
-
 export default class Controller {
 	constructor(data) {
 		this.dataJSON = data;
