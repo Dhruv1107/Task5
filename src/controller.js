@@ -25,8 +25,6 @@ export default class Controller {
 	};
 
 	showpopup = (index, data) => {
-		// console.log("in show popup");
-
 		document.getElementById('popup_head').innerHTML = data[index].title;
 		document.getElementById('popup_content').innerHTML = data[index].content;
 		document.getElementById('myModal').classList.remove('modal-none');
@@ -49,14 +47,10 @@ export default class Controller {
 		let loader = document.getElementById('loader');
 		loader.style.display = 'none';
 	}
-
-	// lazyLoadHeadlines = (data) => {
-
-	// }
 }
-window.onclick = function (event) {
-	let modal = document.getElementById('myModal');
-	if (event.target == modal) {
-		modal.style.display = 'none';
-	}
-};
+// window.onclick = function (event) {
+// 	let modal = document.getElementById('myModal');
+// 	if (event.target == modal) {
+// 		modal.style.display = 'none';
+// 	}
+// };

@@ -62,7 +62,6 @@ export default class View {
 		document.getElementById('headlinesBtn').addEventListener("click", function () {
 			import('./lazyloading.js')
 				.then(module => {
-					console.log(module);
 					new module.LazyLoading();
 				})
 				.catch(error => {
@@ -132,6 +131,7 @@ export default class View {
 		document.getElementById('myModal').classList.add("modal-none");
 		document.getElementById('spanClose').addEventListener('click', controller.closepopup);
 	}
+
 
 	//Function to display the selected news category
 	selectCategoryNews = () => {
