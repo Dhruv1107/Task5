@@ -6,6 +6,7 @@ export default class Model {
 	constructor() {
 		console.log('Model constructor');
 		this.dataJSON;
+		this.headlines;
 		this.fetchcall();
 	}
 
@@ -23,5 +24,17 @@ export default class Model {
 		loader.closeLoader();
 		let news = new View(this.dataJSON);
 	};
+
+	// lazyLoading() {
+	// 	let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=9fdb04ee4078412b82f9dd7f760464f8`;
+	// 	let req = new Request(url);
+	// 	let controller = new Controller();
+	// 	let res = fetch(req).then((res) => res.json()).then((data) => {
+	// 		this.headlines = data.articles;
+	// 		controller.lazyLoadHeadlines(this.headlines);
+	// 	}).catch(err => {
+	// 		console.log(err);
+	// 	});
+	// }
 
 }

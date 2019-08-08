@@ -196,6 +196,10 @@ label {
   height: 5vh;
   text-indent: 0.3rem;
 }
+.form__headlines {
+  margin-top: 4em;
+  margin-left: 4em;
+}
 
 .footer {
   position: fixed;

@@ -16,9 +16,10 @@ export default class View {
 	displayPage = () => {
 		this.header();
 		this.footer();
-		this.displayForm();
+		this.displayForm(this.controllerObj);
 		this.createDisplayDiv();
 		this.displayNews(this.dataJSON, this.controllerObj);
+		this.createPopup(this.controllerObj);
 	};
 
 	header = () => {
@@ -55,8 +56,19 @@ export default class View {
 		<select id='sel-category' class='form__select-box'>
 		${allChannels} 
 		</select>
+		<button class='form__headlines' id='headlinesBtn'>Headlines</button>
 		</div>`;
 		document.getElementById('sel-category').addEventListener("change", this.selectCategoryNews);
+		document.getElementById('headlinesBtn').addEventListener("click", function () {
+			import('./lazyloading.js')
+				.then(module => {
+					console.log(module);
+					new module.LazyLoading();
+				})
+				.catch(error => {
+					console.log(error);
+				});
+		});
 	};
 
 	createDisplayDiv = () => {
@@ -67,10 +79,9 @@ export default class View {
 	}
 
 	displayNews = (dataJSON, controller) => {
-		this.fullData = '';
+		this.fullData = `<div class='content' id='content'>`;
 		for (let index = 0; index < dataJSON.length; index++) {
-			this.fullData += `<div class='content' id='content'>
-			<div class='content__sub' id='content__display'>
+			this.fullData += `<div class='content__sub' id='content__display'>
 			<img src='${dataJSON[index].urlToImage}' class='content__img' ></img>
 			<h3 class='content__modifier content__head' id='myBtn'>
 			${dataJSON[index].title}
@@ -85,6 +96,7 @@ export default class View {
 			</div>
 			<hr>`;
 		}
+		this.fullData += `</div>`
 		document.getElementById('displaynews').innerHTML = this.fullData;
 
 		for (let index = 0; index < dataJSON.length; index++) {
@@ -94,6 +106,32 @@ export default class View {
 		}
 
 	};
+
+	createPopup = (controller) => {
+		let modalData = `<div id="myModal">
+						<div class="modal-content">
+								<div class="modal-header">
+									<span class="close" id="spanClose">&times;</span>
+									<h2 id="popup_head"></h2>
+								</div>
+
+								<div class="modal-body">
+									<p id="popup_content" class="popup_content"></p>
+								</div>
+
+								<div class="modal-footer">
+									<h3 id="popup_foot">&copy; NewsFeed 2019</h3>
+								</div>
+						</div>
+					</div>`;
+		let modelDivision = document.createElement('div');
+		modelDivision.setAttribute('id', 'iammodal');
+		let contentDivision = document.getElementById('main');
+		contentDivision.appendChild(modelDivision);
+		document.getElementById('iammodal').innerHTML = modalData;
+		document.getElementById('myModal').classList.add("modal-none");
+		document.getElementById('spanClose').addEventListener('click', controller.closepopup);
+	}
 
 	//Function to display the selected news category
 	selectCategoryNews = () => {

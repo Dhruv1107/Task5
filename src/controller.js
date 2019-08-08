@@ -26,27 +26,6 @@ export default class Controller {
 
 	showpopup = (index, data) => {
 		// console.log("in show popup");
-		let modalData = `<div id="myModal">
-						<div class="modal-content">
-							<div class="modal-header">
-								<span class="close" id="spanClose">&times;</span>
-								<h2 id="popup_head"></h2>
-							</div>
-							<div class="modal-body">
-								<p id="popup_content" class="popup_content"></p>
-							</div>
-							<div class="modal-footer">
-								<h3 id="popup_foot">&copy; NewsFeed 2019</h3>
-							</div>
-						</div>
-					</div>`;
-
-		let modelDivision = document.createElement('div');
-		modelDivision.setAttribute('id', 'iammodal');
-		let contentDivision = document.getElementById('content');
-		contentDivision.appendChild(modelDivision);
-		document.getElementById('iammodal').innerHTML = modalData;
-		document.getElementById('spanClose').addEventListener('click', this.closepopup);
 
 		document.getElementById('popup_head').innerHTML = data[index].title;
 		document.getElementById('popup_content').innerHTML = data[index].content;
@@ -55,8 +34,7 @@ export default class Controller {
 	};
 
 	closepopup = () => {
-		let modal = document.getElementById('myModal');
-		modal.style.display = 'none';
+		document.getElementById('myModal').classList.add("modal-none");
 	}
 
 	showLoader = () => {
@@ -71,6 +49,10 @@ export default class Controller {
 		let loader = document.getElementById('loader');
 		loader.style.display = 'none';
 	}
+
+	// lazyLoadHeadlines = (data) => {
+
+	// }
 }
 window.onclick = function (event) {
 	let modal = document.getElementById('myModal');
