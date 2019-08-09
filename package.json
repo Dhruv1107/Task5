@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src --out-file compiled.js",
     "watch": "babel src --watch --out-file compiled.js",
-    "start": "webpack-dev-server --open --mode production"
+    "start": "webpack-dev-server --open --mode development",
+    "prod": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,6 @@
     "@babel/preset-env": "^7.5.5",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.6",
-    "babel-plugin-transform-remove-console": "^6.9.4",
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
