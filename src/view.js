@@ -1,3 +1,4 @@
+import '../static/style.css';
 import Model from './model.js';
 import Controller from './controller.js';
 
@@ -12,6 +13,7 @@ export default class View {
 		this.controllerObj = new Controller(data);
 		this.displayPage();
 		this.fullData = ``;
+		console.log("in ");
 	}
 	displayPage = () => {
 		this.header();
@@ -65,7 +67,7 @@ export default class View {
 					new module.LazyLoading();
 				})
 				.catch(error => {
-					console.log(error);
+					console.log(error + "hey");
 				});
 		});
 	};

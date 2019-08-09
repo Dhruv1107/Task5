@@ -10,7 +10,7 @@ export default class Model {
 	}
 
 	async fetchcall() {
-		let url = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'apiKey=9fdb04ee4078412b82f9dd7f760464f8';
+		let url = 'https://newsapi.org/v2/top-headlines?' + 'country=in&' + 'apiKey=9fdb04ee4078412b82f9dd7f760464f8';
 		let req = new Request(url);
 		let loader = new Controller();
 		loader.showLoader();

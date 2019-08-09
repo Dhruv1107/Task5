@@ -25,6 +25,7 @@ export default class Controller {
 	};
 
 	showpopup = (index, data) => {
+		console.log("hey");
 		document.getElementById('popup_head').innerHTML = data[index].title;
 		document.getElementById('popup_content').innerHTML = data[index].content;
 		document.getElementById('myModal').classList.remove('modal-none');
@@ -48,9 +49,12 @@ export default class Controller {
 		loader.style.display = 'none';
 	}
 }
-// window.onclick = function (event) {
-// 	let modal = document.getElementById('myModal');
-// 	if (event.target == modal) {
-// 		modal.style.display = 'none';
-// 	}
-// };
+window.onclick = function modelLoad(event) {
+	console.log("in model window");
+	let modal = document.getElementById('myModal');
+	if (event.target == modal) {
+		document.getElementById('myModal').classList.add("modal-none");
+	}
+};
+
+
