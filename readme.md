@@ -7,3 +7,4 @@ There are 2 ways to run<br />
 2. Run in development mode <br />
    npm install <br />
    npm run start <br />
+   open with live server <br />
