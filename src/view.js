@@ -13,7 +13,6 @@ export default class View {
 		this.controllerObj = new Controller(data);
 		this.displayPage();
 		this.fullData = ``;
-		console.log("in ");
 	}
 	displayPage = () => {
 		this.header();
@@ -25,6 +24,7 @@ export default class View {
 	};
 
 	header = () => {
+		console.log("I wont print in console");
 		let html = `<h1 class="header__heading">NEWSFEED</h1><p class="header__caption">Yet another newsfeed</p>
 						<input type='text' id='subscribe' class='form__subscribe-textbox' placeholder='Email Address'/>
 						<button class='form__subscribe-button' id='subBtn'>Subscribe</button>`;
@@ -133,7 +133,6 @@ export default class View {
 		document.getElementById('myModal').classList.add("modal-none");
 		document.getElementById('spanClose').addEventListener('click', controller.closepopup);
 	}
-
 
 	//Function to display the selected news category
 	selectCategoryNews = () => {

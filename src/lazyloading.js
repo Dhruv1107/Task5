@@ -29,8 +29,6 @@ export class LazyLoading {
                 document.getElementById('iamheadline').innerHTML = headlineData;
                 document.getElementById('myHeadline').classList.remove('modal-none');
                 document.getElementById('myHeadline').classList.add('modal-block');
-                // document.getElementById('headlineClose').addEventListener('click', this.closepopup);
-
             }).catch(err => {
                 console.log(err);
             });
