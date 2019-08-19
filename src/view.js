@@ -11,17 +11,15 @@ window.onload = () => {
 export default class View {
 	constructor(data) {
 		this.dataJSON = data;
-		this.controllerObj = new Controller();
 		this.displayPage();
-		this.fullData = ``;
 	}
 	displayPage = () => {
 		this.header();
 		this.footer();
-		this.displayForm(this.controllerObj);
+		this.displayForm(controller);
 		this.createDisplayDiv();
-		this.displayNews(this.dataJSON, this.controllerObj);
-		this.createPopup(this.controllerObj);
+		this.displayNews(this.dataJSON, controller);
+		this.createPopup(controller);
 	};
 
 	header = () => {
@@ -29,7 +27,7 @@ export default class View {
 						<input type='text' id='subscribe' class='form__subscribe-textbox' placeholder='Email Address'/>
 						<button class='form__subscribe-button' id='subBtn'>Subscribe</button>`;
 		document.getElementById('header').innerHTML = html;
-		document.getElementById('subBtn').addEventListener("click", this.controllerObj.validate);
+		document.getElementById('subBtn').addEventListener("click", controller.validate);
 	};
 
 	footer = () => {
@@ -147,7 +145,7 @@ export default class View {
 			}
 			return selectedCategory === e.source.name;
 		});
-		this.displayNews(selectedData, this.controllerObj);
+		this.displayNews(selectedData, controller);
 	};
 }
 

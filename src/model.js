@@ -12,12 +12,12 @@ export default class Model {
 		let req = new Request(url);
 		let loader = new Controller();
 		loader.showLoader();
-		let res = await fetch(req).then((res) => res.json()).then((data) => {
+		await fetch(req).then((res) => res.json()).then((data) => {
 			dataJSON = data.articles;
 		}).catch(err => {
 			console.log(err);
 		});
 		loader.closeLoader();
-		let news = new View(dataJSON);
+		new View(dataJSON);
 	};
 }
