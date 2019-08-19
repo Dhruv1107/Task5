@@ -1,10 +1,10 @@
 export default class Controller {
-	constructor(data) {
-		this.dataJSON = data;
-		this.email = [];
+	constructor() {
+
 	}
 
 	validate = () => {
+		let email = []
 		if (
 			/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(
 				document.getElementById('subscribe').value
@@ -12,10 +12,10 @@ export default class Controller {
 		) {
 			let loc = localStorage.getItem('iamkey');
 			if (loc) {
-				this.email = JSON.parse(loc);
+				email = JSON.parse(loc);
 			}
-			this.email.push(document.getElementById('subscribe').value);
-			localStorage.setItem('iamkey', JSON.stringify(this.email));
+			email.push(document.getElementById('subscribe').value);
+			localStorage.setItem('iamkey', JSON.stringify(email));
 			console.log(localStorage.getItem('iamkey'));
 			alert('You have entered a valid email address!');
 			return true;

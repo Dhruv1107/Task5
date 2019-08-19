@@ -2,15 +2,16 @@ import '../static/style.css';
 import Model from './model.js';
 import Controller from './controller.js';
 
-let model;
+let model, controller;
 window.onload = () => {
 	model = new Model();
+	controller = new Controller();
 };
 
 export default class View {
 	constructor(data) {
 		this.dataJSON = data;
-		this.controllerObj = new Controller(data);
+		this.controllerObj = new Controller();
 		this.displayPage();
 		this.fullData = ``;
 	}
