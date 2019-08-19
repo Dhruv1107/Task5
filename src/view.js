@@ -25,7 +25,6 @@ export default class View {
 	};
 
 	header = () => {
-		console.log("I wont print in console");
 		let html = `<h1 class="header__heading">NEWSFEED</h1><p class="header__caption">Yet another newsfeed</p>
 						<input type='text' id='subscribe' class='form__subscribe-textbox' placeholder='Email Address'/>
 						<button class='form__subscribe-button' id='subBtn'>Subscribe</button>`;
