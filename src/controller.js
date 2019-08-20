@@ -1,8 +1,4 @@
 export default class Controller {
-	constructor() {
-
-	}
-
 	validate = () => {
 		let email = []
 		if (
